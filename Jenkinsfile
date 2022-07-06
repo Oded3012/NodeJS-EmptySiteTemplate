@@ -7,26 +7,14 @@ pipeline {
   }
   stages {
     stage('checkout code') {
-      parallel {
-        stage('checkout code') {
-          agent {
-            node {
-              label 'Docker-centos7'
-            }
-
-          }
-          steps {
-            git(url: 'git@github.com:Oded3012/NodeJS-EmptySiteTemplate.git', branch: 'master', credentialsId: 'jenkins-key')
-          }
+      agent {
+        node {
+          label 'Docker-centos7'
         }
 
-        stage('say hello') {
-          agent any
-          steps {
-            sh 'echo "hello world"'
-          }
-        }
-
+      }
+      steps {
+        git(url: 'git@github.com:Oded3012/NodeJS-EmptySiteTemplate.git', branch: 'master', credentialsId: 'jenkins-key')
       }
     }
 
