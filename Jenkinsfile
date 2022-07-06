@@ -15,6 +15,7 @@ pipeline {
         }
 
         stage('say hello') {
+          agent any
           steps {
             sh 'echo "hello world"'
           }
