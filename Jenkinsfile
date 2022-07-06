@@ -21,12 +21,7 @@ pipeline {
         }
 
         stage('say hello') {
-          agent {
-            node {
-              label 'Docker-centos7'
-            }
-
-          }
+          agent any
           steps {
             sh 'echo "hello world"'
           }
